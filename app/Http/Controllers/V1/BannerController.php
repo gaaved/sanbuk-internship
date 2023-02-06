@@ -26,5 +26,4 @@ class BannerController
 
         return $this->bannerService->getBanners($type);
     }
-
 }
