@@ -17,12 +17,13 @@ return new class extends Migration
             $table->id();
             $table->tinyInteger('status')->default(\App\Models\User::STATUS_INACTIVE);
             $table->tinyInteger('type')->default(\App\Models\User::TYPE_USER);
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('phone');
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('phone')->nullable();
             $table->string('email')->nullable()->unique();
+            $table->string('name')->nullable();
             $table->timestamp('email_verified_at')->nullable();
-//            $table->string('password');
+            $table->string('password')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
