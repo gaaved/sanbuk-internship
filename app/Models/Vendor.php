@@ -21,10 +21,15 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read int|null $experiences_count
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Sanctum\PersonalAccessToken> $tokens
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Experience> $experiences
+ * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Sanctum\PersonalAccessToken> $tokens
+ * @method static Builder|User vendor()
  * @mixin \Eloquent
  */
 class Vendor extends User
 {
+    protected $table = 'users';
     /**
      * The "booted" method of the model.
      *

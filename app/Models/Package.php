@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Interfaces\StatusInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -26,7 +27,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Package whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-class Package extends Model
+class Package extends Model implements StatusInterface
 {
     use HasFactory;
 

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Interfaces\StatusInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -48,18 +49,22 @@ use Illuminate\Database\Eloquent\Builder;
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Sanctum\PersonalAccessToken> $tokens
  * @method static \Illuminate\Database\Eloquent\Builder|User whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User wherePassword($value)
+ * @property string|null $full_name
+ * @property string|null $url_user_picture
+ * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Sanctum\PersonalAccessToken> $tokens
+ * @method static Builder|User vendor()
+ * @method static Builder|User whereFullName($value)
+ * @method static Builder|User whereUrlUserPicture($value)
  * @mixin \Eloquent
  */
-class User extends Authenticatable
+class User extends Authenticatable implements StatusInterface
 {
     use HasApiTokens, HasFactory, Notifiable;
 
     const TYPE_USER = 0;
     const TYPE_VENDOR = 1;
     const TYPE_ADMIN = 2;
-
-    const STATUS_INACTIVE = 0;
-    const STATUS_ACTIVE = 1;
 
     const STATUS_LIST = [
         self::STATUS_INACTIVE => 'Inactive',

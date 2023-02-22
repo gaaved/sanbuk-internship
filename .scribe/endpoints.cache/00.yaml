@@ -28,14 +28,14 @@ endpoints:
         name: first_name
         description: ''
         required: true
-        example: et
+        example: fugit
         type: string
         custom: []
       last_name:
         name: last_name
         description: ''
         required: true
-        example: occaecati
+        example: est
         type: string
         custom: []
       phone:
@@ -49,14 +49,14 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: false
-        example: hagenes.rosemarie@example.org
+        example: towne.easter@example.com
         type: string
         custom: []
     cleanBodyParameters:
-      first_name: et
-      last_name: occaecati
+      first_name: fugit
+      last_name: est
       phone: et
-      email: hagenes.rosemarie@example.org
+      email: towne.easter@example.com
     fileParameters: []
     responses: []
     responseFields: []
@@ -90,11 +90,11 @@ endpoints:
         name: phone
         description: ''
         required: true
-        example: aut
+        example: cum
         type: string
         custom: []
     cleanBodyParameters:
-      phone: aut
+      phone: cum
     fileParameters: []
     responses: []
     responseFields: []
@@ -128,21 +128,61 @@ endpoints:
         name: phone
         description: ''
         required: true
-        example: sit
+        example: odio
         type: string
         custom: []
       code:
         name: code
         description: ''
         required: true
-        example: illum
+        example: totam
         type: string
         custom: []
     cleanBodyParameters:
-      phone: sit
-      code: illum
+      phone: odio
+      code: totam
     fileParameters: []
     responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/user/profile
+    metadata:
+      groupName: User
+      groupDescription: ''
+      subgroup: Profile
+      subgroupDescription: ''
+      title: 'Get profile'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"status":401,"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          accept: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
     responseFields: []
     auth: []
     controller: null

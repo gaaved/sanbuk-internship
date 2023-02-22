@@ -26,13 +26,13 @@
             </style>
 
     <script>
-        var baseUrl = "http:http://sanbuk-internship.com/";
+        var baseUrl = "";
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
-    <script src="{{ asset("/vendor/scribe/js/tryitout-4.14.0.js") }}"></script>
+    <script src="{{ asset("/vendor/scribe/js/tryitout-4.16.0.js") }}"></script>
 
-    <script src="{{ asset("/vendor/scribe/js/theme-default-4.14.0.js") }}"></script>
+    <script src="{{ asset("/vendor/scribe/js/theme-default-4.16.0.js") }}"></script>
 
 </head>
 
@@ -66,13 +66,13 @@
                     <a href="#authenticating-requests">Authenticating requests</a>
                 </li>
                             </ul>
-                    <ul id="tocify-header-banner" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="banner">
-                    <a href="#banner">Banner</a>
+                    <ul id="tocify-header-experience" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="experience">
+                    <a href="#experience">Experience</a>
                 </li>
-                                    <ul id="tocify-subheader-banner" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="banner-GETapi-v1-banners">
-                                <a href="#banner-GETapi-v1-banners">Banners</a>
+                                    <ul id="tocify-subheader-experience" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="experience-GETapi-v1-experiences">
+                                <a href="#experience-GETapi-v1-experiences">GET api/v1/experiences</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -95,6 +95,14 @@
                                             <a href="#user-POSTapi-v1-auth-verification">SMS Verification</a>
                                         </li>
                                                                     </ul>
+                                                                                <li class="tocify-item level-2" data-unique="user-profile">
+                                <a href="#user-profile">Profile</a>
+                            </li>
+                                                            <ul id="tocify-subheader-user-profile" class="tocify-subheader">
+                                                                            <li class="tocify-item level-3" data-unique="user-GETapi-v1-user-profile">
+                                            <a href="#user-GETapi-v1-user-profile">Get profile</a>
+                                        </li>
+                                                                    </ul>
                                                                         </ul>
                             </ul>
             </div>
@@ -106,7 +114,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: February 10, 2023</li>
+        <li>Last updated: February 19, 2023</li>
     </ul>
 </div>
 
@@ -115,7 +123,7 @@
     <div class="content">
         <h1 id="introduction">Introduction</h1>
 <aside>
-    <strong>Base URL</strong>: <code>http:http://sanbuk-internship.com/</code>
+    <strong>Base URL</strong>: <code></code>
 </aside>
 <p>This documentation aims to provide all the information you need to work with our API.</p>
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
@@ -124,31 +132,31 @@ You can switch the language used with the tabs at the top right (or from the nav
         <h1 id="authenticating-requests">Authenticating requests</h1>
 <p>This API is not authenticated.</p>
 
-        <h1 id="banner">Banner</h1>
+        <h1 id="experience">Experience</h1>
 
     
 
-                                <h2 id="banner-GETapi-v1-banners">Banners</h2>
+                                <h2 id="experience-GETapi-v1-experiences">GET api/v1/experiences</h2>
 
 <p>
 </p>
 
 
 
-<span id="example-requests-GETapi-v1-banners">
+<span id="example-requests-GETapi-v1-experiences">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http:http://sanbuk-internship.com/api/v1/banners" \
+    --get "/api/v1/experiences" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http:http://sanbuk-internship.com/api/v1/banners"
+    "/api/v1/experiences"
 );
 
 const headers = {
@@ -163,9 +171,9 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-v1-banners">
+<span id="example-responses-GETapi-v1-experiences">
             <blockquote>
-            <p>Example response (404):</p>
+            <p>Example response (500):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -173,33 +181,126 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
+accept: application/json
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;The route api/v1/banners could not be found.&quot;,
-    &quot;exception&quot;: &quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;,
-    &quot;file&quot;: &quot;C:\\xampp\\htdocs\\sanbuk-internship\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php&quot;,
-    &quot;line&quot;: 44,
+    &quot;status&quot;: 500,
+    &quot;message&quot;: &quot;Call to undefined method App\\Models\\Experience::activeVendor()&quot;,
+    &quot;exception&quot;: &quot;BadMethodCallException&quot;,
+    &quot;file&quot;: &quot;C:\\xampp\\htdocs\\sanbuk-internship\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Traits\\ForwardsCalls.php&quot;,
+    &quot;line&quot;: 71,
     &quot;trace&quot;: [
         {
-            &quot;file&quot;: &quot;C:\\xampp\\htdocs\\sanbuk-internship\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\CompiledRouteCollection.php&quot;,
-            &quot;line&quot;: 144,
-            &quot;function&quot;: &quot;handleMatchedRoute&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\AbstractRouteCollection&quot;,
+            &quot;file&quot;: &quot;C:\\xampp\\htdocs\\sanbuk-internship\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Traits\\ForwardsCalls.php&quot;,
+            &quot;line&quot;: 36,
+            &quot;function&quot;: &quot;throwBadMethodCallException&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Database\\Eloquent\\Model&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\xampp\\htdocs\\sanbuk-internship\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php&quot;,
+            &quot;line&quot;: 2330,
+            &quot;function&quot;: &quot;forwardCallTo&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Database\\Eloquent\\Model&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\xampp\\htdocs\\sanbuk-internship\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php&quot;,
+            &quot;line&quot;: 2342,
+            &quot;function&quot;: &quot;__call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Database\\Eloquent\\Model&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\xampp\\htdocs\\sanbuk-internship\\app\\Http\\Controllers\\V1\\ExperienceController.php&quot;,
+            &quot;line&quot;: 15,
+            &quot;function&quot;: &quot;__callStatic&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Database\\Eloquent\\Model&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\xampp\\htdocs\\sanbuk-internship\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php&quot;,
+            &quot;line&quot;: 54,
+            &quot;function&quot;: &quot;index&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Controllers\\V1\\ExperienceController&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\xampp\\htdocs\\sanbuk-internship\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php&quot;,
+            &quot;line&quot;: 43,
+            &quot;function&quot;: &quot;callAction&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Controller&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\xampp\\htdocs\\sanbuk-internship\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php&quot;,
+            &quot;line&quot;: 260,
+            &quot;function&quot;: &quot;dispatch&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\ControllerDispatcher&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\xampp\\htdocs\\sanbuk-internship\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php&quot;,
+            &quot;line&quot;: 205,
+            &quot;function&quot;: &quot;runController&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Route&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\xampp\\htdocs\\sanbuk-internship\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
-            &quot;line&quot;: 753,
-            &quot;function&quot;: &quot;match&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\CompiledRouteCollection&quot;,
+            &quot;line&quot;: 798,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Route&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\xampp\\htdocs\\sanbuk-internship\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 141,
+            &quot;function&quot;: &quot;Illuminate\\Routing\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\xampp\\htdocs\\sanbuk-internship\\app\\Http\\Middleware\\JsonMiddleware.php&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\xampp\\htdocs\\sanbuk-internship\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Middleware\\JsonMiddleware&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\xampp\\htdocs\\sanbuk-internship\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 116,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\xampp\\htdocs\\sanbuk-internship\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 799,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\xampp\\htdocs\\sanbuk-internship\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 776,
+            &quot;function&quot;: &quot;runRouteWithinStack&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\xampp\\htdocs\\sanbuk-internship\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
             &quot;line&quot;: 740,
-            &quot;function&quot;: &quot;findRoute&quot;,
+            &quot;function&quot;: &quot;runRoute&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
@@ -222,6 +323,20 @@ access-control-allow-origin: *
             &quot;line&quot;: 141,
             &quot;function&quot;: &quot;Illuminate\\Foundation\\Http\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\xampp\\htdocs\\sanbuk-internship\\vendor\\livewire\\livewire\\src\\DisableBrowserCache.php&quot;,
+            &quot;line&quot;: 19,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\xampp\\htdocs\\sanbuk-internship\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Livewire\\DisableBrowserCache&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
@@ -401,21 +516,21 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\xampp\\htdocs\\sanbuk-internship\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
-            &quot;line&quot;: 122,
+            &quot;line&quot;: 124,
             &quot;function&quot;: &quot;processRoute&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\xampp\\htdocs\\sanbuk-internship\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
-            &quot;line&quot;: 69,
+            &quot;line&quot;: 71,
             &quot;function&quot;: &quot;extractEndpointsInfoFromLaravelApp&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
             &quot;file&quot;: &quot;C:\\xampp\\htdocs\\sanbuk-internship\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
-            &quot;line&quot;: 47,
+            &quot;line&quot;: 49,
             &quot;function&quot;: &quot;extractEndpointsInfoAndWriteToDisk&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -529,43 +644,43 @@ access-control-allow-origin: *
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-v1-banners" hidden>
+<span id="execution-results-GETapi-v1-experiences" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-banners"></span>:
+                id="execution-response-status-GETapi-v1-experiences"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-banners" style="max-height: 400px;"></code></pre>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-experiences" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-v1-banners" hidden>
+<span id="execution-error-GETapi-v1-experiences" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-banners"></code></pre>
+    <pre><code id="execution-error-message-GETapi-v1-experiences"></code></pre>
 </span>
-<form id="form-GETapi-v1-banners" data-method="GET"
-      data-path="api/v1/banners"
+<form id="form-GETapi-v1-experiences" data-method="GET"
+      data-path="api/v1/experiences"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-banners', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-experiences', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-banners"
-                    onclick="tryItOut('GETapi-v1-banners');">Try it out ⚡
+                    id="btn-tryout-GETapi-v1-experiences"
+                    onclick="tryItOut('GETapi-v1-experiences');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-banners"
-                    onclick="cancelTryOut('GETapi-v1-banners');" hidden>Cancel 🛑
+                    id="btn-canceltryout-GETapi-v1-experiences"
+                    onclick="cancelTryOut('GETapi-v1-experiences');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-banners" hidden>Send Request 💥
+                    id="btn-executetryout-GETapi-v1-experiences" hidden>Send Request 💥
             </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/v1/banners</code></b>
+            <b><code>api/v1/experiences</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -573,7 +688,7 @@ access-control-allow-origin: *
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="Content-Type"                data-endpoint="GETapi-v1-banners"
+               name="Content-Type"                data-endpoint="GETapi-v1-experiences"
                value="application/json"
                data-component="header">
     <br>
@@ -584,7 +699,7 @@ access-control-allow-origin: *
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="Accept"                data-endpoint="GETapi-v1-banners"
+               name="Accept"                data-endpoint="GETapi-v1-experiences"
                value="application/json"
                data-component="header">
     <br>
@@ -610,21 +725,21 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http:http://sanbuk-internship.com/api/v1/auth/sign-up" \
+    "/api/v1/auth/sign-up" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"first_name\": \"et\",
-    \"last_name\": \"occaecati\",
+    \"first_name\": \"fugit\",
+    \"last_name\": \"est\",
     \"phone\": \"et\",
-    \"email\": \"hagenes.rosemarie@example.org\"
+    \"email\": \"towne.easter@example.com\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http:http://sanbuk-internship.com/api/v1/auth/sign-up"
+    "/api/v1/auth/sign-up"
 );
 
 const headers = {
@@ -633,10 +748,10 @@ const headers = {
 };
 
 let body = {
-    "first_name": "et",
-    "last_name": "occaecati",
+    "first_name": "fugit",
+    "last_name": "est",
     "phone": "et",
-    "email": "hagenes.rosemarie@example.org"
+    "email": "towne.easter@example.com"
 };
 
 fetch(url, {
@@ -717,10 +832,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="first_name"                data-endpoint="POSTapi-v1-auth-sign-up"
-               value="et"
+               value="fugit"
                data-component="body">
     <br>
-<p>Example: <code>et</code></p>
+<p>Example: <code>fugit</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>last_name</code></b>&nbsp;&nbsp;
@@ -728,10 +843,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="last_name"                data-endpoint="POSTapi-v1-auth-sign-up"
-               value="occaecati"
+               value="est"
                data-component="body">
     <br>
-<p>Example: <code>occaecati</code></p>
+<p>Example: <code>est</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
@@ -750,10 +865,10 @@ fetch(url, {
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="email"                data-endpoint="POSTapi-v1-auth-sign-up"
-               value="hagenes.rosemarie@example.org"
+               value="towne.easter@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>hagenes.rosemarie@example.org</code></p>
+<p>Must be a valid email address. Example: <code>towne.easter@example.com</code></p>
         </div>
         </form>
 
@@ -770,18 +885,18 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http:http://sanbuk-internship.com/api/v1/auth/sign-in" \
+    "/api/v1/auth/sign-in" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"phone\": \"aut\"
+    \"phone\": \"cum\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http:http://sanbuk-internship.com/api/v1/auth/sign-in"
+    "/api/v1/auth/sign-in"
 );
 
 const headers = {
@@ -790,7 +905,7 @@ const headers = {
 };
 
 let body = {
-    "phone": "aut"
+    "phone": "cum"
 };
 
 fetch(url, {
@@ -871,10 +986,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="phone"                data-endpoint="POSTapi-v1-auth-sign-in"
-               value="aut"
+               value="cum"
                data-component="body">
     <br>
-<p>Example: <code>aut</code></p>
+<p>Example: <code>cum</code></p>
         </div>
         </form>
 
@@ -891,19 +1006,19 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http:http://sanbuk-internship.com/api/v1/auth/verification" \
+    "/api/v1/auth/verification" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"phone\": \"sit\",
-    \"code\": \"illum\"
+    \"phone\": \"odio\",
+    \"code\": \"totam\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http:http://sanbuk-internship.com/api/v1/auth/verification"
+    "/api/v1/auth/verification"
 );
 
 const headers = {
@@ -912,8 +1027,8 @@ const headers = {
 };
 
 let body = {
-    "phone": "sit",
-    "code": "illum"
+    "phone": "odio",
+    "code": "totam"
 };
 
 fetch(url, {
@@ -994,10 +1109,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="phone"                data-endpoint="POSTapi-v1-auth-verification"
-               value="sit"
+               value="odio"
                data-component="body">
     <br>
-<p>Example: <code>sit</code></p>
+<p>Example: <code>odio</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>code</code></b>&nbsp;&nbsp;
@@ -1005,12 +1120,132 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="code"                data-endpoint="POSTapi-v1-auth-verification"
-               value="illum"
+               value="totam"
                data-component="body">
     <br>
-<p>Example: <code>illum</code></p>
+<p>Example: <code>totam</code></p>
         </div>
         </form>
+
+                                <h2 id="user-profile">Profile</h2>
+                                                    <h2 id="user-GETapi-v1-user-profile">Get profile</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-user-profile">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "/api/v1/user/profile" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "/api/v1/user/profile"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-user-profile">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+accept: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: 401,
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-user-profile" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-user-profile"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-user-profile" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-user-profile" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-user-profile"></code></pre>
+</span>
+<form id="form-GETapi-v1-user-profile" data-method="GET"
+      data-path="api/v1/user/profile"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-user-profile', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-user-profile"
+                    onclick="tryItOut('GETapi-v1-user-profile');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-user-profile"
+                    onclick="cancelTryOut('GETapi-v1-user-profile');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-user-profile" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/user/profile</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi-v1-user-profile"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi-v1-user-profile"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
 
             
 

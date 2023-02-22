@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('experiences', function (Blueprint $table) {
+        Schema::create('charter_types', function (Blueprint $table) {
             $table->id();
             $table->tinyInteger('status')->default(0);
-            $table->unsignedBigInteger('vendor_id');
-            $table->foreign('vendor_id')->on('users')->references('id');
             $table->string('name');
-            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('experience');
+        Schema::dropIfExists('charter_types');
     }
 };
