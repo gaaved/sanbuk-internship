@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Experience;
 use App\Models\Interfaces\StatusInterface;
 use App\Models\Package;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -18,8 +19,9 @@ class PackagesSeeder extends Seeder
     {
         Package::create([
             'status' => StatusInterface::STATUS_ACTIVE,
-            'experience_id' => mt_rand(1, 20),
+            'experience_id' => Experience::all()->random(1)->first()?->id,
             'name' => fake()->word,
+            'price' => mt_rand(100, 1000),
             'description' => fake()->text,
             'start_of_activity' => fake()->dateTimeBetween($startDate = '-3 days', $endDate = 'now'),
             'and_of_activity' => fake()->dateTimeBetween($startDate = 'now', $endDate = '+3 days'),
@@ -27,8 +29,9 @@ class PackagesSeeder extends Seeder
 
         Package::create([
             'status' => StatusInterface::STATUS_INACTIVE,
-            'experience_id' => mt_rand(1, 20),
+            'experience_id' => Experience::all()->random(1)->first()?->id,
             'name' => fake()->word,
+            'price' => mt_rand(100, 1000),
             'description' => fake()->text,
             'start_of_activity' => fake()->dateTimeBetween($startDate = '-7 days', $endDate = '-3 days'),
             'and_of_activity' => fake()->dateTimeBetween($startDate = '-2 days', $endDate = '-1 days'),

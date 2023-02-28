@@ -3,10 +3,13 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Events\UserCreated;
 use App\Models\Interfaces\StatusInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Cashier\Billable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -60,7 +63,7 @@ use Illuminate\Database\Eloquent\Builder;
  */
 class User extends Authenticatable implements StatusInterface
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes, Billable;
 
     const TYPE_USER = 0;
     const TYPE_VENDOR = 1;
@@ -114,5 +117,14 @@ class User extends Authenticatable implements StatusInterface
     public function scopeVendor(Builder $query)
     {
         return $query->where('type', self::TYPE_VENDOR);
+    }
+
+    protected $dispatchesEvents = [
+        'created' => UserCreated::class,
+    ];
+
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
     }
 }

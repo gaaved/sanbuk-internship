@@ -15,10 +15,19 @@ return new class extends Migration
     {
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
+
             $table->unsignedBigInteger('experience_id');
             $table->foreign('experience_id')->on('experiences')->references('id');
+
             $table->string('name');
+
+            $table->integer('price');
+
             $table->text('description')->nullable();
+
+            $table->date('date_from')->nullable();
+            $table->date('date_to')->nullable();
+
             $table->timestamps();
         });
     }

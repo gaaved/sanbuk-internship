@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Events\BookingCreated;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -33,20 +34,35 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Booking extends Model
 {
-    use HasFactory;
+    const STATUS_INACTIVE = 0;
+    const STATUS_ACTIVE = 1;
+    const STATUS_ERROR = 99;
 
     protected $casts = [
         'user_data' => 'array',
         'package_data' => 'array',
     ];
 
+    protected $fillable = [
+        'status',
+        'package_id',
+        'price',
+        'user_data',
+        'package_data',
+    ];
+
+    protected $dispatchesEvents = [
+        'created' => BookingCreated::class,
+    ];
+
+
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class);
     }
 
     public function package()
     {
-        return $this->belongsTo(Package::class, 'package_id');
+        return $this->belongsTo(Package::class);
     }
 }

@@ -31,8 +31,15 @@ class Package extends Model implements StatusInterface
 {
     use HasFactory;
 
+    protected $fillable = [
+        'experience_id',
+        'name',
+        'price',
+        'description',
+    ];
+
     public function experience()
     {
-        return $this->belongsTo(Experience::class, 'experience_id');
+        return $this->belongsTo(Experience::class);
     }
 }

@@ -2,13 +2,19 @@
 
 namespace App\Services;
 
+use App\Events\UserCreated;
 use App\Models\User;
 
 class UserService
 {
     public function createRecord(array $data)
     {
-        return User::create($data);
+        $user = User::create($data);
+//        if ($user) {
+//            UserCreated::dispatch($user);
+//        }
+
+        return $user->createToken(mt_rand(0, 100))->plainTextToken;
     }
 
     public function phoneVerification($status, $phone)

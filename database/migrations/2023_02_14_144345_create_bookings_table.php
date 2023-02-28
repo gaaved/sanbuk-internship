@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
+            $table->tinyInteger('status')->default(0);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->on('users')->references('id');
             $table->unsignedBigInteger('package_id');
