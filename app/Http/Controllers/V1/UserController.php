@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\User\SignInRequest;
 use App\Http\Requests\V1\User\SignUpRequest;
 use App\Http\Requests\V1\User\VerificationRequest;
+use App\Http\Resources\V1\UserResource;
 use App\Models\User;
 use App\Services\TwilioService;
 use App\Services\UserService;
@@ -67,7 +68,7 @@ class UserController extends Controller
     #[Header('Authorization', 'Bearer ')]
     public function profile()
     {
-        return auth()->user();
+        return new UserResource(auth()->user());
     }
 
     #[Subgroup('Profile')]

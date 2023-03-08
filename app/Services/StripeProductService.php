@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Http\Requests\Product\BuyProductRequest;
+use Illuminate\Support\Facades\Cache;
 use Stripe\Exception\ApiErrorException;
 use Stripe\StripeClient;
 
@@ -15,10 +16,11 @@ class StripeProductService
         $this->stripe = new StripeClient(config('stripe.stripe_secret'));
     }
 
-    public function getProducts(): array
+    public function getProducts()
     {
         $products = $this->stripe->products->all();
         $res = [];
+
         foreach($products as $product) {
             if($product->active === true){
                 $res[] =
@@ -31,7 +33,9 @@ class StripeProductService
                     ];
             }
         }
-        return $res;
+        return Cache::rememberForever('stripe-product', function () use ($res) {
+            return $res;
+        });
     }
 
     /**
