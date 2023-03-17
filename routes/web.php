@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\V1\ExperienceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +23,9 @@ Route::get('/', function () {
 Route::prefix('/users')->name('users.')->group(function () {
     Route::get('/sign-up', [UserController::class, 'signUp'])->name('sign-up');
 });
+
+
+    Route::get('/experiences', function () {
+        return view('experiences.experience');
+    });
+

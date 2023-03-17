@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\ExperienceImage;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -22,6 +23,7 @@ class DatabaseSeeder extends Seeder
             VendorSeeder::class,
             ExperienceSeeder::class,
             PackagesSeeder::class,
+            ExperienceImagesSeeder::class,
         ]);
     }
 }

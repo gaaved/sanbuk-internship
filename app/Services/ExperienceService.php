@@ -9,9 +9,13 @@ use Illuminate\Database\Eloquent\Builder;
 
 class ExperienceService
 {
-    public function filter(array $filterParams)
+    public function filter(array $filterParams = null)
     {
         $experiences = Experience::query();
+
+        if ($filterParams === null) {
+            return $experiences->get();
+        }
         if ($filterParams !== null) {
             foreach ($filterParams as $key => $values) {
                 if ($key === 'type') {

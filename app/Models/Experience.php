@@ -56,7 +56,7 @@ class Experience extends Model implements StatusInterface
 
     public function vendor()
     {
-        return $this->belongsTo(Vendor::class, 'vendor_id');
+        return $this->belongsTo(Vendor::class);
     }
 
     public function type()
@@ -88,4 +88,10 @@ class Experience extends Model implements StatusInterface
     {
         return $query->whereRelation('vendor', 'status', Vendor::STATUS_ACTIVE);
     }
+
+    public function experienceImages()
+    {
+        return $this->hasMany(ExperienceImage::class);
+    }
+
 }
