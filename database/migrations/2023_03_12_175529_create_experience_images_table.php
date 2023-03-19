@@ -13,18 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('packages', function (Blueprint $table) {
+        Schema::create('experience_images', function (Blueprint $table) {
             $table->id();
-
-            $table->unsignedBigInteger('experience_id');
-            $table->foreign('experience_id')->on('experiences')->references('id');
-
-            $table->string('name');
-
-            $table->integer('price');
-
-            $table->text('description')->nullable();
-
+            $table->integer('experience_id');
+            $table->string('url')->nullable();
             $table->timestamps();
         });
     }
@@ -36,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('packages');
+        Schema::dropIfExists('experience_image');
     }
 };
