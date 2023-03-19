@@ -3,10 +3,7 @@
 namespace App\Http\Livewire\Experiences;
 
 use App\Models\Experience;
-use App\Models\ExperienceImage;
-use App\Models\Package;
 use Illuminate\Database\Eloquent\Builder;
-//use Illuminate\Database\Query\Builder;
 use Livewire\Component;
 
 class ExperienceList extends Component
@@ -43,7 +40,6 @@ class ExperienceList extends Component
     {
         $this->emit('closeModal');
         $this->filter[$type] = $value;
-        ray($this->filter);
         $this->initItems();
     }
 
@@ -80,8 +76,13 @@ class ExperienceList extends Component
                             $query->whereIn('id', $values);
                         }
                         if ($key === 'packages') {
-                            $query->where('start_of_activity','<=' , $values[1])
-                                  ->where('and_of_activity', '>=', $values[0]);
+                            if (isset($values[0])) {
+                                $query->where('start_of_activity','>=' , $values[0]);
+                            }
+
+                            if (isset($values[1])) {
+                                $query->where('and_of_activity', '<=', $values[1]);
+                            }
                         }
                         if ($key === 'type') {
                             $query->whereIn('id', $values);

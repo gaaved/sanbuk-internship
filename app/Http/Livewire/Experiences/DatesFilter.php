@@ -2,23 +2,26 @@
 
 namespace App\Http\Livewire\Experiences;
 
-use Livewire\Component;
+use App\Models\Traits\ModalFilterTrait;
 use LivewireUI\Modal\ModalComponent;
 
 class DatesFilter extends ModalComponent
 {
+    use ModalFilterTrait;
+
     public $selected = [];
 
     protected $listeners = ['setSelected' => 'setSelected'];
 
     public function mount()
     {
-        $filter = request()->query('filter');
+        $filter = $this->modalFilter();
 
-        if ($filter !== null && in_array('packages', $filter)) {
-            $this->selected = $filter['packages'];
+        foreach ($filter as $key => $val){
+            if($key === 'packages'){
+                $this->selected = $val;
+            }
         }
-
     }
 
     public function render()

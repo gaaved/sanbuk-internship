@@ -9,18 +9,17 @@
         </div>
     </div>
     <div class="flex flex-row gap-16px">
-        <div class="flex items-center" wire:click="$emit('filterListener', 'experiences.trip-type-filter', {{json_encode($this->filter)}})">
-            <span wire:click="$emit('openModal', 'experiences.trip-type-filter')"
-                  class="bg-gray-100 font-medium py-3 px-4 rounded-2xl border-[1px] border-gray-400 text-gray-400">Trip type</span>
+        <div class="flex items-center">
+            <button wire:click="$emit('openModal', 'experiences.trip-type-filter')" class="bg-gray-100 font-medium py-3 px-4 rounded-2xl border-[1px] border-gray-400 text-gray-400">Trip type</button>
         </div>
         <div class="flex items-center">
-            <span wire:click="$emit('openModal', 'experiences.dates-filter')" class="bg-gray-100 font-medium py-3 px-4 rounded-2xl border-[1px] border-gray-400 text-gray-400">Date</span>
+            <button wire:click="$emit('openModal', 'experiences.dates-filter')" class="bg-gray-100 font-medium py-3 px-4 rounded-2xl border-[1px] border-gray-400 text-gray-400">Date</button>
         </div>
         <div class="flex items-center">
-            <span wire:click="$emit('openModal', 'experiences.departure-filter')" class="bg-gray-100 font-medium py-3 px-4 rounded-2xl border-[1px] border-gray-400 text-gray-400">Departure</span>
+            <button wire:click="$emit('openModal', 'experiences.departure-filter')" class="bg-gray-100 font-medium py-3 px-4 rounded-2xl border-[1px] border-gray-400 text-gray-400">Departure</button>
         </div>
         <div class="flex items-center">
-            <span wire:click="$emit('openModal', 'experiences.boat-type-filter')" class="bg-gray-100 font-medium py-3 px-4 rounded-2xl border-[1px] border-gray-400 text-gray-400">Boat type</span>
+            <button wire:click="$emit('openModal', 'experiences.boat-type-filter')" class="bg-gray-100 font-medium py-3 px-4 rounded-2xl border-[1px] border-gray-400 text-gray-400">Boat type</button>
         </div>
     </div>
     <div class="drop-shadow-md">
@@ -45,9 +44,7 @@
                 <div class="text-right text-gray-500">max 6 people</div>
             </div>
             </div>
-
         </div>
-
     @endforeach
     </div>
 </div>

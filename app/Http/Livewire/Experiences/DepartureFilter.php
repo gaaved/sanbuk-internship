@@ -1,27 +1,28 @@
 <?php
 
-
 namespace App\Http\Livewire\Experiences;
 
 use App\Models\Departure;
+use App\Models\Traits\ModalFilterTrait;
 use LivewireUI\Modal\ModalComponent;
 
 class DepartureFilter extends ModalComponent
 {
+    use ModalFilterTrait;
+
     public $items = [];
     public $selected = [];
 
     public function mount()
     {
         $this->items = Departure::all();
-        $filter = request()->query('filter');
 
-        ray('filter', request());
+        $filter = $this->modalFilter();
 
-        if ($filter !== null && in_array('departure', $filter)) {
-            $this->selected = $filter['departure'];
-
-            ray('selected', $this->selected);
+        foreach ($filter as $key => $val){
+            if($key === 'departure'){
+                $this->selected = $val;
+            }
         }
     }
 
@@ -32,10 +33,23 @@ class DepartureFilter extends ModalComponent
 
     public function setSelected($value)
     {
-        if (in_array($value, $this->selected) === false) {
-            $this->selected[] = $value;
+        if (!in_array($value, $this->selected)) {
+            $this->selected[] =  (string)$value;
+        } else {
+            $key = array_search ($value, $this->selected);
+
+            unset($this->selected[$key]);
+        }
+    }
+
+    public function setAllSelected($value)
+    {
+        $sel = [];
+        foreach ($this->items as $item)
+        {
+            $sel[] =  $item->id;
         }
 
-        ray('$this->selected', $this->selected);
+        $this->selected =  $value ? $sel : [];
     }
 }
